@@ -3,9 +3,9 @@ import { Link,graphql } from 'gatsby';
 import Layout from "../components/layout/layout.component";
 import  '../styles/global.css';
 
-export default function Home({data}) {
+export default function Home() {
 
-  const {title,description} = data.site.siteMetadata;
+  // const {title,description} = data.site.siteMetadata;
 
   return (
     <Layout>
@@ -17,19 +17,19 @@ export default function Home({data}) {
           <Link className="btn" to="/projects">My Portfolio Projects</Link>
         </div>
         <img src="/banner.png" alt="site banner" style={{ maxWidth: '100%' }} />
-        <p>{title} - {description}</p>
+        {/*<p>{title} - {description}</p>*/}
       </section>
     </Layout>
   )
 }
 
-export const query = graphql`
-  query SiteInfo {
-    site {
-      siteMetadata {
-        description
-        title
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query SiteInfo {
+//     site {
+//       siteMetadata {
+//         description
+//         title
+//       }
+//     }
+//   }
+// `
