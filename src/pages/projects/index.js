@@ -8,10 +8,10 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
-      <div className={styles.portfolio}>
+      <div className="portfolio">
         <h2>Portfolio</h2>
         <h3>Projects & Websites I've Created</h3>
-        <div className={styles.projects}>
+        <div className="projects">
           {projects.map(project => (
             <Link to={"/projects/" + project.frontmatter.slug} key={project.id}>
               <div>
