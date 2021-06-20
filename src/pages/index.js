@@ -2,8 +2,9 @@ import React from "react";
 import { Link,graphql } from 'gatsby';
 import Layout from "../components/layout/layout.component";
 import  '../styles/global.css';
+import Img from "gatsby-image"
 
-export default function Home() {
+export default function Home({data}) {
 
   // const {title,description} = data.site.siteMetadata;
 
@@ -16,7 +17,7 @@ export default function Home() {
           <p>UX designer & web developer based in Manchester.</p>
           <Link className="btn" to="/projects">My Portfolio Projects</Link>
         </div>
-        <img src="/banner.png" alt="site banner" style={{ maxWidth: '100%' }} />
+        <Img fluid={data.file.childImageSharp.fluid} />
         {/*<p>{title} - {description}</p>*/}
       </section>
     </Layout>
@@ -33,3 +34,15 @@ export default function Home() {
 //     }
 //   }
 // `
+
+export const query = graphql`
+  query Banner {
+    file(relativePath: {eq: "banner.png"}) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
